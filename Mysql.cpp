@@ -1,9 +1,11 @@
+#include <my_global.h>
+#include <mysql.h>
 #include "Mysql.h"
 
 /**
  * Constructor
  */
-Mysql::Mysql(string host, string user, string password, string database)
+Mysql::Mysql(const char* host, const char* user, const char* password, const char* database)
 {
     connection = mysql_init(NULL);
 
@@ -16,6 +18,7 @@ Mysql::Mysql(string host, string user, string password, string database)
     if (mysql_real_connect(connection, host, user, password, database, 0, NULL, 0) == NULL) {
         _error();
     }
+
 }
 
 /**
@@ -29,7 +32,7 @@ Mysql::~Mysql()
 /**
  * Run a query on the database
  */
-Mysql::query(string sql)
+void Mysql::query(const char* sql)
 {
     if (mysql_query(connection, sql)) {
         _error();
@@ -39,7 +42,7 @@ Mysql::query(string sql)
 /**
  * Fetch results from the database from the database
  */
-Mysql::results()
+void Mysql::results()
 {
     result = mysql_store_result(connection);
 
@@ -57,12 +60,13 @@ Mysql::results()
     }
 
     mysql_free_result(result);
+
 }
 
 /**
  * Display an error message
  */
-Mysql::_error()
+void Mysql::_error()
 {
     fprintf(stderr, "%s\n", mysql_error(connection));
     mysql_close(connection);

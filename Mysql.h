@@ -1,6 +1,6 @@
+#include <stdio.h>
 #include <my_global.h>
-#include <Mysql.h>
-#include <string>
+#include <mysql.h>
 
 class Mysql
 {
@@ -15,11 +15,11 @@ private:
 
 public:
 
-    Mysql(string, string, string, database);
+    Mysql(const char*, const char*, const char*, const char*);
 
     ~Mysql();
 
-    void query(string);
+    void query(const char*);
 
     void results();
-}
+};
