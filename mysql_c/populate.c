@@ -23,7 +23,11 @@ int main()
 	}
 	if (mysql_real_connect(con,"localhost","root","none","process_control",0,NULL,0)==NULL)
 	{
-		fprintf(stderr,"%s\n",mysql_error(con));
+		fprintf(stderr,
+
+
+
+		"%s\n",mysql_error(con));
 		exit(2);
 	}
 	for (i=0;i<100;i++)
