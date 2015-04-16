@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
 
     mysql.query("SELECT * FROM mixer_temp");
     mysql.results();
+
     return 0;
 
 }
