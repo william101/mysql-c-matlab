@@ -1,14 +1,20 @@
 #include <stdio.h>
-#include "Mysql.h"
+#include "data.h"
+#include <string>
 
-using namespace std;
+using namespace.std;
 
 int main(int argc, char *argv[])
 {
-    Mysql mysql("localhost", "root", "none", "process_control");
+	ofstream mysql.result("Data.csv");
 
-    mysql.query("SELECT * FROM mixer_temp");
-    mysql.results();
-    return 0;
+    data.dataReader;
 
+	//data_close(filepointer);
+	exit(0);
+
+
+
+	fclose(filepointer); /* close the file */
+    return 0; /* success */
 }
