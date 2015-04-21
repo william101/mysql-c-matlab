@@ -45,7 +45,6 @@ void Mysql::query(const char* sql)
 void Mysql::results()
 {
     result = mysql_store_result(connection);
-
     if (result == NULL) {
         _error();
     }
@@ -54,13 +53,12 @@ void Mysql::results()
 
     while ((row = mysql_fetch_row(result))) {
         for(int i = 0; i < num_fields; i++) {
-            printf("%s ", row[i] ? row[i] : "NULL");
+            printf("%s, ", row[i] ? row[i] : "NULL");
         }
         printf("\n");
     }
 
     mysql_free_result(result);
-
 }
 
 /**
