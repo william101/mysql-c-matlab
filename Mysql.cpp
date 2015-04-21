@@ -45,7 +45,6 @@ void Mysql::query(const char* sql)
 void Mysql::results()
 {
     result = mysql_store_result(connection);
-
     if (result == NULL) {
         _error();
     }
@@ -60,7 +59,6 @@ void Mysql::results()
     }
 
     mysql_free_result(result);
-
 }
 
 /**
